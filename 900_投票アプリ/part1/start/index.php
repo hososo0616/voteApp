@@ -2,6 +2,21 @@
 
 require_once 'config.php';
 
+//library
+require_once SOURCE_BASE . 'libs/helper.php';
+require_once SOURCE_BASE . 'libs/auth.php';
+
+//Model
+require_once SOURCE_BASE . 'models/abstract.model.php';
+require_once SOURCE_BASE . 'models/user.model.php';
+
+//DB
+require_once SOURCE_BASE . 'db/datasource.php';
+require_once SOURCE_BASE . 'db/user.query.php';
+
+//対象のクラスを先に読み込まないとセッションに格納できないため順番に注意
+session_start();
+
 require_once SOURCE_BASE . 'partials/header.php';
 
 $rpath = str_replace(BASE_CONTEXT_PATH, '', $_SERVER['REQUEST_URI']);
