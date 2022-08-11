@@ -6,21 +6,42 @@ use Error;
 
 abstract class AbstractModel {
 
-  protected static $_SESSION_NAME = null;
+  protected static $SESSION_NAME = null;
 
   public static function setSession($val) {
-    if(empty(static::$_SESSION_NAME)) {
+
+    if(empty(static::$SESSION_NAME)) {
       throw new Error('SESSION_NAMEを設定してください');
     }
-    $_SESSION[static::$_SESSION_NAME] = $val;
+
+    $_SESSION[static::$SESSION_NAME] = $val;
+
   }
 
   public static function getSession() {
-    return $_SESSION[static::$_SESSION_NAME] ?? null;
+
+    return $_SESSION[static::$SESSION_NAME] ?? null;
+
   }
 
   public static function clearSession() {
+
     static::setSession(null);
+
+  }
+
+  public static function getSessionAndFlush() {
+
+    try {
+
+      return static::getSession();
+
+        } finally {
+
+      static::clearSession();
+
+    }
+        
   }
 }
 
