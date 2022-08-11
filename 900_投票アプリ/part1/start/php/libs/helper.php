@@ -11,7 +11,7 @@ function redirect($path)
   if($path === GO_HOME) {
     $path = get_url('');
   }
-  elseif ($path === GO_REFERER) {
+  else if ($path === GO_REFERER) {
     $path = $_SERVER['HTTP_REFERER'];
   }
   else {
@@ -24,4 +24,10 @@ function redirect($path)
 
 function get_url($path) {
   return BASE_CONTEXT_PATH . trim($path, '/');
+}
+
+function is_alnum($val) {
+
+  return preg_match("/^[a-zA-Z0-9]+$/", $val);
+  
 }

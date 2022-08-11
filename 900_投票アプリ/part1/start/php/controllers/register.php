@@ -3,6 +3,7 @@
 namespace controller\register;
 
 use lib\Auth;
+use lib\Msg;
 use model\UserModel;
 
 function get()
@@ -18,8 +19,12 @@ function post()
   $user->nickname = get_param('nickname', '');
 
   if (Auth::regist($user)) {
-    echo '会員登録成功';
+
+    Msg::push(Msg::INFO, "{$user->nickname}さん、ようこそ。");
+    redirect(GO_HOME);
+    
   } else {
-    echo '会員登録失敗';
+
+    redirect(GO_REFERER);
   }
 }
