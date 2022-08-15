@@ -31,10 +31,13 @@ function header()
             <span class="h2 font-weight-bold mb-0">みんなのアンケート</span>
           </a>
           <div class="col-md-auto">
-            <?php if (true) : ?>
+            <?php if (Auth::isLogin()) : ?>
+              <a href="<?php the_url('topic/create') ?>" class="btn btn-primary mr-2">投稿</a>
+              <a href="<?php the_url('topic/afchive') ?>" class="mr-2">過去の投稿</a>
+              <a href="<?php the_url('logout') ?>">ログアウト</a>
+              <?php else : ?>
               <a href="<?php the_url('register') ?>" class="btn btn-primary mr-2">登録</a>
               <a href="<?php the_url('login') ?>">ログイン</a>
-            <?php else : ?>
             <?php endif ?>
           </div>
         </nav>
