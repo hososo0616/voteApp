@@ -1,6 +1,4 @@
-<?php 
-
-$url = $_SERVER['REQUEST_URI'];
+<?php
 define('CURRENT_URI', $_SERVER['REQUEST_URI']);
 // echo $_SERVER['REQUEST_URI'];
 if (preg_match("/(.+(start|end))/i", CURRENT_URI, $match)) {
@@ -16,5 +14,3 @@ define('GO_HOME', 'home');
 define('GO_REFERER', 'referer');
 
 define('DEBUG', true);
-
-?>

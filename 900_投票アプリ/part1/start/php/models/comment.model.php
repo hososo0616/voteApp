@@ -4,28 +4,22 @@ namespace model;
 
 use lib\Msg;
 
-class TopicModel extends AbstractModel
+class CommentModel extends AbstractModel
 {
   public int $id;
-  public string $title;
-  public int $published;
-  public int $views;
-  public int $likes;
-  public int $dislikes;
+  public int $topic_id;
+  public int $agree;
+  public string $body;
   public string $user_id;
   public string $nickname;
   public int $del_flg;
 
-  protected static $SESSION_NAME = '_topic';
+  protected static $SESSION_NAME = '_commnet';
 
-  public function isValidId()
-  {
-    return static::validateId($this->id);
-  }
-
-  public static function validateId($val) {
-    return true;
-  }
+  // public function isValidId()
+  // {
+  //   return static::validateId($this->id);
+  // }
 
   // public static function validateId($val)
   // {
