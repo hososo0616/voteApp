@@ -19,7 +19,7 @@ function index()
         </div>
         <div class="form-group">
           <label for="pwd">パスワード</label>
-          <input is="pwd" type="password" class="form-control" name="pwd" />
+          <input id="pwd" type="password" class="form-control" name="pwd" />
         </div>
         <div class="d-flex align-items-center justify-content-between">
           <div>

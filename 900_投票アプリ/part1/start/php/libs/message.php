@@ -29,7 +29,7 @@ class Msg extends AbstractModel
     try {
       $msgs_with_type = static::getSessionAndFlush() ?? [];
 
-      echo '<div id="messages>';
+      echo '<div id="messages">';
 
       foreach ($msgs_with_type as $type => $msgs) {
         if ($type === static::DEBUG && !DEBUG) {
