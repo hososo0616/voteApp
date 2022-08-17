@@ -2,8 +2,8 @@
 
 namespace lib;
 
-use db\TopicQuery;
 use db\UserQuery;
+use db\TopicQuery;
 use model\UserModel;
 use Throwable;
 
@@ -118,12 +118,12 @@ class Auth
     }
   }
 
-  public static function hasPermission()
+  public static function hasPermission($topic_id, $user)
   {
     return TopicQuery::isUserOwnTopic($topic_id, $user);
   }
 
-  public static function requirePeramission($topic_id, $user)
+  public static function requirePermission($topic_id, $user)
   {
     if (!static::hasPermission($topic_id, $user)) {
       Msg::push(Msg::ERROR, '編集権限がありません。管理者でログインしなおしてください。');

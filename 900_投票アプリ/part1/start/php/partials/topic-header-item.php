@@ -3,6 +3,7 @@
 namespace partials;
 
 use lib\Auth;
+
 function topic_header_item($topic, $from_top_page)
 {
 ?>
@@ -36,11 +37,11 @@ function topic_main($topic, $from_top_page)
 {
 ?>
   <div>
-    <?php if($from_top_page): ?>
+    <?php if ($from_top_page) : ?>
       <h1 class="sr-only">みんなのアンケート</h1>
-    <h2 class="h1"><a class="text-body" href="<?php the_url('topic/detail?topic_id=' . $topic->id)?>"><?php echo $topic->title ?></a></h2>
-    <?php else: ?>
-    <h1><?php echo $topic->title ?></h1>
+      <h2 class="h1"><a class="text-body" href="<?php the_url('topic/detail?topic_id=' . $topic->id) ?>"><?php echo $topic->title ?></a></h2>
+    <?php else : ?>
+      <h1><?php echo $topic->title ?></h1>
     <?php endif ?>
     <span class="mr-1 h5">Posted by <?php echo $topic->nickname ?></span>
     <span class="mr-1 h5">&bull;</span>
@@ -79,7 +80,7 @@ function comment_form($topic)
               <label for="agree" class="form-check-label">賛成</label>
             </div>
             <div class="form-check-inline">
-              <input class="form-check-input" type="radio" id="disagree" name="disagree" value="0">
+              <input class="form-check-input" type="radio" id="disagree" name="agree" value="0">
               <label for="disagree" class="form-check-label">反対</label>
             </div>
           </div>
