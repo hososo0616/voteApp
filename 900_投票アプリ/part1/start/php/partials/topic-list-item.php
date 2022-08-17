@@ -10,7 +10,7 @@ function topic_list_item($topic, $title_url, $with_status)
 
 ?>
 
-  <li class="row bg-white shadow-sm mb-3 rounded p-3 topic">
+  <li class="topic row bg-white shadow-sm mb-3 rounded p-3">
     <div class="col-md d-flex align-items-center">
       <h2 class="mb-2 mb-md-0">
         <?php if ($with_status) : ?>

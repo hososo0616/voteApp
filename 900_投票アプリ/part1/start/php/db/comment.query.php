@@ -15,8 +15,8 @@ class CommentQuery
 
     $db = new DataSource();
     $sql = 'select c.*, u.nickname
-            from pollapp.comment c
-            innner join pollapp.users u
+            from pollapp.comments c
+            inner join pollapp.users u
             on c.user_id = u.id
             where c.topic_id = :id
             and c.body != "" 
@@ -26,10 +26,34 @@ class CommentQuery
 
     $result = $db->select($sql, [
       ':id' => $topic->id
-    ], DataSource::CLS, TopicModel::class);
+    ], DataSource::CLS, CommentModel::class);
 
     return $result;
   }
 
-  
+  public static function insert($comment)
+  {
+
+    if (!($comment->isValidTopicId()
+      * $comment->isValidBody()
+      * $comment->isValidAgree())) {
+      return false;
+    }
+
+    $db = new DataSource;
+
+    $sql = '
+        insert into comments
+            (topic_id, agree, body, user_id)
+        values
+            (:topic_id, :agree, :body, :user_id)
+        ';
+
+    return $db->execute($sql, [
+      ':topic_id' => $comment->topic_id,
+      ':agree' => $comment->agree,
+      ':body' => $comment->body,
+      ':user_id' => $comment->user_id,
+    ]);
+  }
 }

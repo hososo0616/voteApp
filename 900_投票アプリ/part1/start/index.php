@@ -34,6 +34,7 @@
   require_once SOURCE_BASE . 'views/register.php';
   require_once SOURCE_BASE . 'views/topic/archive.php';
   require_once SOURCE_BASE . 'views/topic/detail.php';
+  require_once SOURCE_BASE . 'views/topic/edit.php';
 
   use function lib\route;
 
@@ -50,7 +51,9 @@
     route($rpath, $method);
 
     \partials\footer();
+
   } catch (Throwable $e) {
 
     die('<h1>何かがすごくおかしいようです。</h1>');
+    
   }

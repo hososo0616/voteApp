@@ -22,7 +22,6 @@ function post()
 
     Msg::push(Msg::INFO, "{$user->nickname}さん、ようこそ。");
     redirect(GO_HOME);
-    
   } else {
 
     redirect(GO_REFERER);

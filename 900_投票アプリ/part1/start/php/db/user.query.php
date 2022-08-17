@@ -26,10 +26,7 @@ class UserQuery {
     return $db->execute($sql, [
       ':id' => $user->id,
       ':pwd' => $user->pwd,
-      ':nickname' => $user->nickname
+      ':nickname' => $user->nickname,
     ]);
   }
 }
-
-
-?>
